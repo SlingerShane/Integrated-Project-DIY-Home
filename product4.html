@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Home Repair Essentials - A must-have for every home improvement enthusiast.">
+    <meta name="keywords" content="Home Repair, DIY, Tools">
+    <title>Home Repair Essentials - DIY Haven</title>
+    <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+    <header>
+        <nav>
+            <div class="nav-container">
+                <div class="logo">
+                    <h1>DIY Haven</h1>
+                </div>
+                <ul class="nav-links">
+                    <li><a href="index.html" class="nav-link">Home</a></li>
+                    <li><a href="forum.html" class="nav-link">Forum</a></li>
+                    <li><a href="guide.html" class="nav-link">Guides</a></li>
+                    <li><a href="about.html" class="nav-link">About</a></li>
+                    <li><a href="contact.html" class="nav-link">Contact</a></li>
+                    <li><a href="cart.html" class="nav-link">Cart</a></li>
+                </ul>
+            </div>
+        </nav>
+    </header>
+
+    <main>
+        <div class="product-detail">
+            <h2>Home Repair Essentials</h2>
+            <img src="images/product4.jpg" alt="Home Repair Essentials" class="product-image">
+            <p>A must-have for every home improvement enthusiast. This kit includes a variety of tools and materials to tackle any home repair project.</p>
+            <h3>Features:</h3>
+            <ul>
+                <li>Durable tools for various repairs</li>
+                <li>Comprehensive guide included</li>
+                <li>Compact and easy to store</li>
+                <li>Perfect for beginners and experts alike</li>
+            </ul>
+            <span class="price">$34.99</span>
+            <div class="rating">⭐⭐⭐⭐⭐</div>
+            <button class="btn" onclick="addToCart('Home Repair Essentials', 34.99)">Add to Cart</button>
+        </div>
+    </main>
+
+    <footer>
+        <p>&copy; 2024 DIY Haven. All rights reserved.</p>
+        <div>
+            <a href="https://facebook.com" target="_blank">Follow us on Facebook</a>
+            <a href="https://twitter.com" target="_blank">Follow us on Twitter</a>
+        </div>
+    </footer>
+
+    <script>
+        function addToCart(productId, price) {
+            let cart = JSON.parse(localStorage.getItem('cart')) || [];
+            const existingItem = cart.find(item => item.productId === productId);
+
+            if (existingItem) {
+                existingItem.quantity += 1; // Increase quantity if already in cart
+            } else {
+                cart.push({ productId, price, quantity: 1 }); // Add new item
+            }
+
+            localStorage.setItem('cart', JSON.stringify(cart));
+            alert(`${productId} has been added to your cart!`);
+        }
+    </script>
+</body>
+</html>

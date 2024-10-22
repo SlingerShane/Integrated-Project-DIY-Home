@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Your Cart - DIY Haven</title>
+    <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+    <header>
+        <nav>
+            <div class="nav-container">
+                <div class="logo">
+                    <h1>DIY Haven</h1>
+                </div>
+                <ul class="nav-links">
+                    <li><a href="index.html" class="nav-link">Home</a></li>
+                    <li><a href="forum.html" class="nav-link">Forum</a></li>
+                    <li><a href="guide.html" class="nav-link">Guides</a></li>
+                    <li><a href="about.html" class="nav-link">About</a></li>
+                    <li><a href="contact.html" class="nav-link">Contact</a></li>
+                    <li><a href="cart.html" class="nav-link">Cart</a></li>
+                </ul>
+            </div>
+        </nav>
+    </header>
+
+    <main>
+        <div class="cart-container">
+            <h2>Your Cart</h2>
+            <table class="cart-table">
+                <thead>
+                    <tr>
+                        <th>Product</th>
+                        <th>Quantity</th>
+                        <th>Price</th>
+                        <th>Total</th>
+                        <th>Action</th>
+                    </tr>
+                </thead>
+                <tbody id="cartItems">
+                    <!-- Cart items will be dynamically inserted here -->
+                </tbody>
+            </table>
+            <div class="cart-summary">
+                <p id="totalPrice">Total: $0.00</p>
+                <a href="checkout.html" class="btn">Proceed to Checkout</a>
+            </div>
+        </div>
+    </main>
+
+    <footer>
+        <p>&copy; 2024 DIY Haven. All rights reserved.</p>
+        <div>
+            <a href="https://facebook.com" target="_blank">Follow us on Facebook</a>
+            <a href="https://twitter.com" target="_blank">Follow us on Twitter</a>
+        </div>
+    </footer>
+
+    <script>
+        function displayCart() {
+            const cart = JSON.parse(localStorage.getItem('cart')) || [];
+            const cartContainer = document.getElementById('cartItems');
+            cartContainer.innerHTML = '';
+
+            let total = 0;
+            cart.forEach(item => {
+                const itemTotal = item.price * item.quantity;
+                const cartItem = document.createElement('tr');
+                cartItem.innerHTML = `
+                    <td>${item.productId}</td>
+                    <td><input type="number" value="${item.quantity}" min="1" onchange="updateQuantity('${item.productId}', this.value)"></td>
+                    <td>$${item.price.toFixed(2)}</td>
+                    <td class="item-total" id="total-${item.productId}">$${itemTotal.toFixed(2)}</td>
+                    <td><button class="remove-btn" onclick="removeItem('${item.productId}')">Remove</button></td>
+                `;
+                cartContainer.appendChild(cartItem);
+                total += itemTotal;
+            });
+
+            document.getElementById('totalPrice').innerText = `Total: $${total.toFixed(2)}`;
+        }
+
+        function updateQuantity(productId, quantity) {
+            let cart = JSON.parse(localStorage.getItem('cart')) || [];
+            const item = cart.find(item => item.productId === productId);
+            if (item) {
+                item.quantity = Math.max(1, quantity); // Ensure quantity is at least 1
+                localStorage.setItem('cart', JSON.stringify(cart));
+                displayCart(); // Refresh the cart display
+            }
+        }
+
+        function removeItem(productId) {
+            let cart = JSON.parse(localStorage.getItem('cart')) || [];
+            cart = cart.filter(item => item.productId !== productId);
+            localStorage.setItem('cart', JSON.stringify(cart));
+            displayCart();
+        }
+
+        window.onload = displayCart;
+    </script>
+</body>
+</html>

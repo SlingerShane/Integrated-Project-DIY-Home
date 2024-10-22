@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact Us - DIY Haven</title>
+    <style>
+        body {
+            font-family: 'Helvetica Neue', Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f7f7f7;
+            color: #333;
+        }
+        header {
+            background-color: #1a1a2e; /* Dark blue/navy background for the header */
+            color: #ecf0f1;
+            padding: 15px 0;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            text-align: center;
+        }
+        .logo {
+            font-size: 2em;
+            font-weight: bold;
+            display: block;
+            margin-bottom: 10px;
+        }
+        nav {
+            display: flex;
+            justify-content: center;
+        }
+        nav ul {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        nav ul li {
+            margin: 0 15px;
+        }
+        nav ul li a {
+            color: #ecf0f1;
+            text-decoration: none;
+            font-weight: 500;
+            padding: 8px 16px;
+            border-radius: 4px;
+            transition: background-color 0.3s, color 0.3s;
+        }
+        nav ul li a:hover {
+            background-color: #34495e; /* Change the hover color to a dark grayish blue */
+            color: #ffffff;
+        }
+        main {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: calc(100vh - 80px);
+            padding: 40px 20px;
+            background-color: #fafafa;
+        }
+        .contact-form {
+            max-width: 500px;
+            width: 100%;
+            background: #ffffff;
+            padding: 30px;
+            border-radius: 8px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease-in-out;
+        }
+        .contact-form:hover {
+            transform: scale(1.02);
+        }
+        h2 {
+            margin-bottom: 20px;
+            color: #1a1a2e;
+            font-size: 2em;
+            text-align: center;
+        }
+        .contact-form label {
+            display: block;
+            margin-bottom: 8px;
+            color: #34495e;
+            font-weight: 600;
+        }
+        .contact-form input, .contact-form textarea {
+            width: 100%;
+            padding: 12px;
+            margin-bottom: 20px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            font-size: 1em;
+            transition: border-color 0.3s;
+        }
+        .contact-form input:focus, .contact-form textarea:focus {
+            border-color: #34495e; /* Change input focus color to match nav hover */
+            outline: none;
+        }
+        .contact-form button {
+            background-color: #1a1a2e; /* Matching button color to header background */
+            color: white;
+            border: none;
+            padding: 12px 20px;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 1em;
+            transition: background-color 0.3s, transform 0.3s;
+            width: 100%;
+        }
+        .contact-form button:hover {
+            background-color: #2c3e50; /* Slightly lighter shade on hover */
+            transform: translateY(-2px);
+        }
+        footer {
+            background-color: #1a1a2e;
+            color: #ecf0f1;
+            text-align: center;
+            padding: 15px 0;
+            position: relative;
+            bottom: 0;
+            width: 100%;
+        }
+        @media (max-width: 768px) {
+            header, nav ul {
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                text-align: center;
+            }
+            nav ul li {
+                margin: 10px 0;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="logo">DIY Haven</div>
+        <nav>
+            <ul>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="forum.php">Forum</a></li>
+                <li><a href="guide.html">Guides</a></li>
+                <li><a href="about.html">About</a></li>
+                <li><a href="contact.html">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
+    <main>
+        <div class="contact-form">
+            <h2>Get in Touch</h2>
+            <form id="contactForm">
+                <label for="name">Name</label>
+<input type="text" id="name" name="name" required aria-required="true" aria-label="Your Name">
+                <label for="email">Email</label>
+                <input type="email" id="email" name="email" required>
+                <label for="message">Message</label>
+                <textarea id="message" name="message" rows="5" required></textarea>
+                <button type="submit">Send Message</button>
+            </form>
+        </div>
+    </main>
+    <footer>
+        <p>&copy; 2024 DIY Haven. All rights reserved.</p>
+    </footer>
+
+    <script>
+        document.getElementById('contactForm').addEventListener('submit', function(event) {
+            event.preventDefault();
+            alert('Message sent! We will get back to you shortly.');
+        });
+    </script>
+</body>
+</html>

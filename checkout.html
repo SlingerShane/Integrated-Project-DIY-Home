@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Checkout - DIY Haven</title>
+    <link rel="stylesheet" href="css/styles.css">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #eaeaea;
+            margin: 0;
+            padding: 0;
+        }
+        .checkout-container {
+            max-width: 600px;
+            margin: 40px auto;
+            padding: 20px;
+            border: 1px solid #ccc;
+            border-radius: 8px;
+            background-color: #f9f9f9;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+        }
+        h1, h2 {
+            color: #333;
+        }
+        .checkout-form label {
+            display: block;
+            margin-bottom: 5px;
+            font-weight: bold;
+            color: #555;
+        }
+        .checkout-form input, 
+        .checkout-form textarea {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 15px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            font-size: 16px;
+            transition: border-color 0.3s;
+        }
+        .checkout-form input:focus, 
+        .checkout-form textarea:focus {
+            border-color: #28a745;
+            outline: none;
+        }
+        .checkout-form button {
+            background-color: #28a745;
+            color: white;
+            padding: 10px 15px;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: 16px;
+            transition: background-color 0.3s;
+        }
+        .checkout-form button:hover {
+            background-color: #218838;
+        }
+        .total-sum {
+            font-size: 18px;
+            font-weight: bold;
+            margin-top: 20px;
+            color: #333;
+        }
+        footer {
+            text-align: center;
+            padding: 20px 0;
+            background-color: #f1f1f1;
+            margin-top: 20px;
+        }
+        footer p, footer div a {
+            color: #555;
+            margin: 0 5px;
+            text-decoration: none;
+        }
+        footer div a:hover {
+            text-decoration: underline;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <nav>
+            <div class="nav-container">
+                <div class="logo">
+                    <h1>DIY Haven</h1>
+                </div>
+                <ul class="nav-links">
+                    <li><a href="index.html" class="nav-link">Home</a></li>
+                    <li><a href="forum.php" class="nav-link">Forum</a></li>
+                    <li><a href="guide.html" class="nav-link">Guides</a></li>
+                    <li><a href="about.html" class="nav-link">About</a></li>
+                    <li><a href="contact.html" class="nav-link">Contact</a></li>
+                </ul>
+            </div>
+        </nav>
+    </header>
+
+    <main>
+        <div class="checkout-container">
+            <h2>Billing Information</h2>
+            <form class="checkout-form" action="thank_you.html" method="POST">
+                <label for="name">Full Name:</label>
+                <input type="text" id="name" name="name" required>
+
+                <label for="email">Email:</label>
+                <input type="email" id="email" name="email" required>
+
+                <label for="address">Shipping Address:</label>
+                <textarea id="address" name="address" rows="4" required></textarea>
+
+                <label for="card">Credit Card Number:</label>
+                <input type="text" id="card" name="card" required pattern="\d{16}" title="Please enter a valid 16-digit credit card number">
+
+                <div class="total-sum">
+                    Total Amount: $<span id="totalAmount">0.00</span>
+                </div>
+
+                <button type="submit" class="btn">Place Order</button>
+            </form>
+
+            <script>
+                function calculateTotal(cart) {
+                    return cart.reduce((total, item) => total + (item.price * item.quantity), 0).toFixed(2);
+                }
+
+                function updateTotal() {
+                    const cart = JSON.parse(localStorage.getItem('cart')) || [];
+                    const totalAmount = calculateTotal(cart);
+                    document.getElementById('totalAmount').innerText = totalAmount;
+                }
+
+                window.onload = updateTotal;
+            </script>
+        </div>
+    </main>
+
+    <footer>
+        <p>&copy; 2024 DIY Haven. All rights reserved.</p>
+        <div>
+            <a href="https://facebook.com" target="_blank">Follow us on Facebook</a>
+            <a href="https://twitter.com" target="_blank">Follow us on Twitter</a>
+        </div>
+    </footer>
+</body>
+</html>

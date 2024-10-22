@@ -1,0 +1,278 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <title>DIY Haven | Home Improvement Inspiration</title>
+    <meta name="description" content="Explore home improvement ideas, DIY tips, and inspiration to transform your space."/>
+    <link rel="stylesheet" href="css/styles.css">
+    <style>
+        body {
+            font-family: 'Open Sans', Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f9f9f9;
+            color: #333;
+        }
+
+        header {
+            background-color: #1a1a2e; /* Dark navy background */
+            color: #ffffff;
+            padding: 15px 0;
+            text-align: center;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+
+        header h1 {
+            font-size: 2.5em;
+            font-weight: bold;
+            margin: 0;
+        }
+
+        nav ul {
+            list-style: none;
+            padding: 0;
+            margin: 10px 0 0;
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+        }
+
+        nav ul li {
+            display: inline;
+        }
+
+        nav ul li a {
+            color: #ffffff;
+            text-decoration: none;
+            font-weight: 500;
+            padding: 10px 15px;
+            border-radius: 4px;
+            transition: background-color 0.3s, color 0.3s;
+        }
+
+        nav ul li a:hover {
+            background-color: #e67e22;
+        }
+
+        main {
+            padding: 20px;
+        }
+
+        .hero {
+            background: url('images/hero.jpg') no-repeat center center/cover;
+            height: 350px;
+            color: white;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            border-radius: 8px;
+        }
+
+        .hero h1 {
+            font-size: 3em;
+            font-weight: bold;
+            margin: 0;
+        }
+
+        .section {
+            margin: 40px 0;
+        }
+
+        .section h2 {
+            font-size: 2.2em;
+            margin-bottom: 20px;
+            color: #1a1a2e;
+        }
+
+        .featured-articles {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 20px;
+        }
+
+        .article {
+            background-color: white;
+            border-radius: 8px;
+            padding: 20px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease;
+        }
+
+        .article:hover {
+            transform: translateY(-5px);
+        }
+
+        .article img {
+            width: 100%;
+            border-radius: 5px;
+        }
+
+        .article h3 {
+            font-size: 1.5em;
+            margin: 15px 0 10px;
+            color: #1a1a2e;
+        }
+
+        .article p {
+            font-size: 1.1em;
+            color: #555;
+        }
+
+        .article a {
+            display: inline-block;
+            margin-top: 10px;
+            color: #e67e22;
+            font-weight: bold;
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+
+        .article a:hover {
+            color: #d35400;
+        }
+
+        .newsletter {
+            background-color: #1a1a2e;
+            padding: 30px;
+            text-align: center;
+            color: white;
+            border-radius: 8px;
+            margin: 40px 0;
+        }
+
+        .newsletter h2 {
+            font-size: 2em;
+            margin-bottom: 15px;
+        }
+
+        .newsletter form {
+            display: flex;
+            justify-content: center;
+            gap: 10px;
+            margin-top: 20px;
+        }
+
+        .newsletter input[type="email"] {
+            padding: 10px;
+            font-size: 1em;
+            border: none;
+            border-radius: 4px;
+            width: 250px;
+        }
+
+        .newsletter button {
+            background-color: #e67e22;
+            border: none;
+            color: white;
+            padding: 10px 20px;
+            font-size: 1em;
+            cursor: pointer;
+            border-radius: 4px;
+            transition: background-color 0.3s;
+        }
+
+        .newsletter button:hover {
+            background-color: #d35400;
+        }
+
+        footer {
+            background-color: #1a1a2e;
+            color: #ffffff;
+            text-align: center;
+            padding: 15px 0;
+            border-top: 1px solid #e67e22;
+        }
+
+        footer a {
+            color: #e67e22;
+            margin: 0 10px;
+            text-decoration: none;
+            font-weight: 500;
+        }
+
+        footer a:hover {
+            color: #d35400;
+        }
+
+        @media (max-width: 768px) {
+            .featured-articles {
+                grid-template-columns: 1fr;
+            }
+
+            nav ul {
+                flex-direction: column;
+                gap: 10px;
+            }
+
+            .newsletter form {
+                flex-direction: column;
+            }
+
+            .newsletter input[type="email"] {
+                width: 100%;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>DIY Haven</h1>
+        <nav>
+            <ul>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="forum.php">Forum</a></li>
+                <li><a href="guide.html">Guides</a></li>
+                <li><a href="about.html">About</a></li>
+                <li><a href="contact.html">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <div class="hero">
+            <h1>Your Home, Your Style</h1>
+        </div>
+
+        <section class="section">
+            <h2>Featured Articles</h2>
+            <div class="featured-articles">
+                <div class="article">
+                    <img src="images/article1.jpg" alt="Article 1">
+                    <h3>10 DIY Projects to Refresh Your Home</h3>
+                    <p>Discover easy projects that can transform your space.</p>
+                    <a href="article1.html">Read More</a>
+                </div>
+                <div class="article">
+                    <img src="images/article2.jpg" alt="Article 2">
+                    <h3>How to Choose the Perfect Paint Color</h3>
+                    <p>Tips for selecting the right colors for every room.</p>
+                    <a href="article2.html">Read More</a>
+                </div>
+                <div class="article">
+                    <img src="images/article3.jpg" alt="Article 3">
+                    <h3>Maximizing Small Spaces</h3>
+                    <p>Smart solutions for making the most of limited areas.</p>
+                    <a href="article3.html">Read More</a>
+                </div>
+            </div>
+        </section>
+
+        <section class="newsletter">
+            <h2>Subscribe to Our Newsletter</h2>
+            <p>Get the latest tips and inspiration delivered to your inbox!</p>
+            <form action="subscribe.php" method="POST">
+                <input type="email" name="email" placeholder="Your Email" required>
+                <button type="submit">Subscribe</button>
+            </form>
+        </section>
+    </main>
+
+    <footer>
+        <p>&copy; 2024 DIY Haven. All rights reserved.</p>
+        <a href="https://facebook.com" target="_blank">Follow us on Facebook</a>
+        <a href="https://twitter.com" target="_blank">Follow us on Twitter</a>
+    </footer>
+</body>
+</html>
